@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Squishy Shop</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header>
+    <h1>Squishy Shop</h1>
+    <nav>
+      <a href="#catalog">Каталог</a>
+      <a href="#cart">Корзина</a>
+    </nav>
+  </header>
+
+  <main>
+    <section id="catalog">
+      <h2>Каталог сквишей</h2>
+      <div class="products">
+
+        <article class="card">
+          <img src="images/maslo.jpg" alt="Сквиш Масло">
+          <h3>Сквиш Масло</h3>
+          <p class="price">350 ₽</p>
+          <button onclick="addToCart('Сквиш Масло', 350)">Добавить в корзину</button>
+        </article>
+
+        <article class="card">
+          <img src="images/syr.jpg" alt="Сквиш Сыр">
+          <h3>Сквиш Сыр</h3>
+          <p class="price">400 ₽</p>
+          <button onclick="addToCart('Сквиш Сыр', 400)">Добавить в корзину</button>
+        </article>
+
+        <article class="card">
+          <img src="images/dumpling.jpg" alt="Сквиш Дамплинг">
+          <h3>Сквиш Дамплинг</h3>
+          <p class="price">450 ₽</p>
+          <button onclick="addToCart('Сквиш Дамплинг', 450)">Добавить в корзину</button>
+        </article>
+
+        <article class="card">
+          <img src="images/tost.jpg" alt="Сквиш Тост">
+          <h3>Сквиш Тост</h3>
+          <p class="price">380 ₽</p>
+          <button onclick="addToCart('Сквиш Тост', 380)">Добавить в корзину</button>
+        </article>
+
+        <article class="card">
+          <img src="images/sushi.jpg" alt="Сквиш Суши">
+          <h3>Сквиш Суши</h3>
+          <p class="price">420 ₽</p>
+          <button onclick="addToCart('Сквиш Суши', 420)">Добавить в корзину</button>
+        </article>
+
+        <article class="card">
+          <img src="images/ponchik.jpg" alt="Сквиш Пончик">
+          <h3>Сквиш Пончик</h3>
+          <p class="price">330 ₽</p>
+          <button onclick="addToCart('Сквиш Пончик', 330)">Добавить в корзину</button>
+        </article>
+
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>2026 Squishy Shop</p>
+  </footer>
+
+</body>
+</html>
