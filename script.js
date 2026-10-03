@@ -14,6 +14,19 @@ function addToCart(name, price) {
   showCart();
 }
 
+function removeItem(i) {
+  cart.splice(i, 1);
+  showCart();
+}
+
+function changeQty(i, change) {
+  cart[i].qty = cart[i].qty + change;
+  if (cart[i].qty <= 0) {
+    cart.splice(i, 1);
+  }
+  showCart();
+}
+
 function showCart() {
   var list = document.getElementById('cart-list');
   var total = 0;
@@ -22,7 +35,10 @@ function showCart() {
   for (var i = 0; i < cart.length; i++) {
     var sum = cart[i].price * cart[i].qty;
     total = total + sum;
-    html = html + '<li>' + cart[i].name + ' — ' + cart[i].price + ' ₽ × ' + cart[i].qty + ' = ' + sum + ' ₽</li>';
+        html = html + '<li>' + cart[i].name + ' — ' + cart[i].price + ' ₽ ' +
+      '<button onclick="changeQty(' + i + ', -1)">−</button> ' + cart[i].qty +
+      ' <button onclick="changeQty(' + i + ', 1)">+</button> = ' + sum + ' ₽ ' +
+      '<button onclick="removeItem(' + i + ')">Удалить</button></li>';
   }
 
   if (cart.length === 0) {
