@@ -1,4 +1,8 @@
+var saved = localStorage.getItem('cart');
 var cart = [];
+if (saved !== null) {
+  cart = JSON.parse(saved);
+}
 
 function addToCart(name, price) {
   var found = false;
@@ -28,6 +32,7 @@ function changeQty(i, change) {
 }
 
 function showCart() {
+    localStorage.setItem('cart', JSON.stringify(cart));
   var list = document.getElementById('cart-list');
   var total = 0;
   var html = '';
