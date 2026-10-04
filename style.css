@@ -94,6 +94,18 @@ footer {
   font-weight: bold;
 }
 
+#order-form {
+  display: none;
+  flex-direction: column;
+  gap: 8px;
+  max-width: 400px;
+  margin-top: 20px;
+}
+
+#order-form input {
+  padding: 8px;
+}
+
 @media (max-width: 800px) {
   .products {
     grid-template-columns: repeat(2, 1fr);
