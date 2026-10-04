@@ -54,4 +54,21 @@ function showCart() {
   document.getElementById('cart-total').textContent = total;
 }
 
+function openForm() {
+  if (cart.length === 0) {
+    alert('Сначала добавьте товары в корзину');
+  } else {
+    document.getElementById('order-form').style.display = 'flex';
+  }
+}
+
+function createOrder(event) {
+  event.preventDefault();
+  alert('Заказ создан!');
+  cart = [];
+  showCart();
+  document.getElementById('order-form').reset();
+  document.getElementById('order-form').style.display = 'none';
+}
+
 showCart();
