@@ -14,7 +14,7 @@ header {
   justify-content: space-between;
   align-items: center;
   padding: 15px 30px;
-  background: #ff8fb1;
+  background: #deec86;
   color: white;
 }
 
@@ -59,7 +59,7 @@ h2 {
 }
 
 .price {
-  color: #e0457b;
+  color: #fa9e35;
   font-weight: bold;
 }
 
@@ -67,7 +67,7 @@ button {
   padding: 8px 15px;
   border: none;
   border-radius: 15px;
-  background: #ff8fb1;
+  background: #fdf991;
   color: white;
   cursor: pointer;
 }
