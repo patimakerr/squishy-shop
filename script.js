@@ -16,6 +16,7 @@ function addToCart(name, price) {
     cart.push({ name: name, price: price, qty: 1 });
   }
   showCart();
+    document.getElementById('message').textContent = '';
 }
 
 function removeItem(i) {
@@ -31,44 +32,83 @@ function changeQty(i, change) {
   showCart();
 }
 
+function createCartItem(item, index) {
+  var li = document.createElement('li');
+
+  var text = document.createElement('span');
+  text.textContent = item.name + ' — ' + item.price + ' ₽ ';
+
+  var minus = document.createElement('button');
+  minus.textContent = '−';
+  minus.onclick = function () {
+    changeQty(index, -1);
+  };
+
+  var qty = document.createElement('span');
+  qty.textContent = ' ' + item.qty + ' ';
+
+  var plus = document.createElement('button');
+  plus.textContent = '+';
+  plus.onclick = function () {
+    changeQty(index, 1);
+  };
+
+  var sum = document.createElement('span');
+  sum.textContent = ' = ' + item.price * item.qty + ' ₽ ';
+
+  var remove = document.createElement('button');
+  remove.textContent = 'Удалить';
+  remove.onclick = function () {
+    removeItem(index);
+  };
+
+  li.appendChild(text);
+  li.appendChild(minus);
+  li.appendChild(qty);
+  li.appendChild(plus);
+  li.appendChild(sum);
+  li.appendChild(remove);
+  return li;
+}
+
 function showCart() {
-    localStorage.setItem('cart', JSON.stringify(cart));
+  localStorage.setItem('cart', JSON.stringify(cart));
+
   var list = document.getElementById('cart-list');
+  list.textContent = '';
   var total = 0;
-  var html = '';
 
   for (var i = 0; i < cart.length; i++) {
-    var sum = cart[i].price * cart[i].qty;
-    total = total + sum;
-        html = html + '<li>' + cart[i].name + ' — ' + cart[i].price + ' ₽ ' +
-      '<button onclick="changeQty(' + i + ', -1)">−</button> ' + cart[i].qty +
-      ' <button onclick="changeQty(' + i + ', 1)">+</button> = ' + sum + ' ₽ ' +
-      '<button onclick="removeItem(' + i + ')">Удалить</button></li>';
+    total = total + cart[i].price * cart[i].qty;
+    list.appendChild(createCartItem(cart[i], i));
   }
 
   if (cart.length === 0) {
-    html = '<li>Корзина пуста</li>';
+    var empty = document.createElement('li');
+    empty.textContent = 'Корзина пуста';
+    list.appendChild(empty);
   }
 
-  list.innerHTML = html;
   document.getElementById('cart-total').textContent = total;
 }
 
 function openForm() {
+  var message = document.getElementById('message');
   if (cart.length === 0) {
-    alert('Сначала добавьте товары в корзину');
+    message.textContent = 'Сначала добавьте товары в корзину';
   } else {
+    message.textContent = '';
     document.getElementById('order-form').style.display = 'flex';
   }
 }
 
 function createOrder(event) {
   event.preventDefault();
-  alert('Заказ создан!');
   cart = [];
   showCart();
   document.getElementById('order-form').reset();
   document.getElementById('order-form').style.display = 'none';
+  document.getElementById('message').textContent = 'Заказ создан!';
 }
 
 showCart();

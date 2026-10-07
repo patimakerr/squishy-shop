@@ -94,6 +94,12 @@ footer {
   font-weight: bold;
 }
 
+#message {
+  margin-top: 10px;
+  font-weight: bold;
+  color: #bde257;
+}
+
 #order-form {
   display: none;
   flex-direction: column;
